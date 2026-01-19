@@ -1,0 +1,155 @@
+/* ==== Dark UI Variables ==== */
+:root{
+  --bg:#0b0f17;                  /* page bg */
+  --bg-2:#111827;                /* containers */
+  --glass:rgba(17,24,39,.6);     /* frosted glass */
+  --text:#e5e7eb;                /* text */
+  --muted:#9ca3af;               /* muted text */
+  --primary:#8b5cf6;             /* neon violet */
+  --primary-2:#06b6d4;           /* cyan accent */
+  --ok:#22c55e;                  /* green */
+  --warn:#f59e0b;                /* amber */
+  --bad:#ef4444;                 /* red */
+  --ring: rgba(139, 92, 246, .45); /* focus ring */
+  --shadow-lg: 0 18px 60px rgba(0,0,0,.55);
+  --shadow: 0 12px 28px rgba(0,0,0,.35);
+  --radius:16px;
+  --radius-lg:22px;
+  --border:1px solid rgba(255,255,255,.06);
+  --glow: 0 0 24px rgba(139,92,246,.35), 0 0 48px rgba(6,182,212,.22);
+}
+
+/* radial gradient backdrop */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:-1;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(139,92,246,.15), transparent 50%),
+    radial-gradient(900px 500px at 110% 10%, rgba(6,182,212,.12), transparent 40%),
+    radial-gradient(700px 400px at 50% 120%, rgba(34,197,94,.10), transparent 40%),
+    linear-gradient(180deg, #0b0f17 0%, #0b0f17 100%);
+}
+
+/* container padding */
+.block-container{ padding-top: 1.2rem; }
+
+/* ==== Headings ==== */
+.main-header{
+  font-size: clamp(1.8rem, 2vw + 1.2rem, 3rem);
+  font-weight: 900;
+  letter-spacing: .2px;
+  text-align:center;
+  margin: 0 0 1.2rem 0;
+  background: conic-gradient(from 180deg at 50% 50%, var(--primary), var(--primary-2), var(--primary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 24px rgba(139,92,246,.15));
+}
+.sub-header{
+  font-size: clamp(1.1rem, 1vw + .9rem, 1.6rem);
+  font-weight: 800;
+  color: #e9d5ff;  /* violet-100 */
+  margin: .85rem 0 .9rem;
+  border-bottom: 2px solid rgba(139,92,246,.35);
+  padding-bottom: .4rem;
+}
+
+/* ==== Cards / Glass ==== */
+.feature-card, .stats-card, .security-feature, .history-item, .analysis-step{
+  background: linear-gradient(180deg, var(--glass), rgba(17,24,39,.35));
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+.feature-card{
+  padding:1.25rem; margin:1rem 0; transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow: var(--glow), var(--shadow);
+}
+.feature-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 50px rgba(139,92,246,.18); }
+
+.stats-card{
+  padding:1.15rem; text-align:center; margin:.75rem;
+  border-top: 3px solid rgba(139,92,246,.45);
+}
+
+/* security feature pill cards */
+.security-feature{ padding:1rem; margin:.75rem 0; border-left: 4px solid rgba(139,92,246,.55); }
+.security-feature:hover{ transform: translateX(6px); }
+
+/* timeline/history item */
+.history-item{ padding:1rem; margin:.75rem 0; cursor:pointer; transition: all .2s ease; }
+.history-item:hover{ transform: translateX(6px); box-shadow: 0 14px 40px rgba(139,92,246,.16); }
+
+/* analysis highlight */
+.analysis-step{
+  padding:1.2rem; margin:1rem 0;
+  border-left: 5px solid rgba(6,182,212,.55);
+}
+
+/* ==== Verdict Banners ==== */
+.verdict-real,.verdict-fake,.verdict-suspect{
+  padding: 1.75rem;
+  border-radius: 18px;
+  text-align:center; color:#fff;
+  font-size: clamp(1.3rem, 1vw + 1rem, 1.9rem);
+  font-weight: 900; margin: 1.2rem 0;
+  box-shadow: var(--shadow-lg);
+  letter-spacing:.2px;
+}
+.verdict-real{
+  background: linear-gradient(135deg, rgba(34,197,94,.85), rgba(16,185,129,.9));
+  border: 1px solid rgba(34,197,94,.35);
+}
+.verdict-fake{
+  background: linear-gradient(135deg, rgba(239,68,68,.9), rgba(244,63,94,.9));
+  border: 1px solid rgba(239,68,68,.35);
+}
+.verdict-suspect{
+  background: linear-gradient(135deg, rgba(245,158,11,.9), rgba(234,179,8,.9));
+  border: 1px solid rgba(245,158,11,.35);
+}
+
+/* ==== Progress ==== */
+.progress-bar{ height: 18px; background: rgba(255,255,255,.08); border-radius: 999px; overflow:hidden; margin:.6rem 0; }
+.progress-fill{ height:100%; border-radius:999px; text-align:center; color:#0b0f17; font-weight:800; line-height:18px; background: linear-gradient(90deg, var(--primary), var(--primary-2)); box-shadow: inset 0 0 10px rgba(0,0,0,.25); }
+
+/* ==== Serial Box ==== */
+.serial-box{
+  background: linear-gradient(135deg, rgba(14,165,233,.25), rgba(6,182,212,.25));
+  padding:1rem; border-radius: 14px; color:#e6faff; margin:.75rem 0; box-shadow: var(--shadow);
+  border:1px solid rgba(6, 182, 212, .35);
+}
+
+/* ==== Pills ==== */
+.feature-badge{
+  background: linear-gradient(135deg, rgba(139,92,246,.35), rgba(6,182,212,.35));
+  color:#e5e7eb; padding:.45rem .9rem; border-radius:999px; font-size:.9rem; font-weight:800; display:inline-block; margin:.25rem;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* ==== Buttons & Inputs ==== */
+.stButton>button, .stDownloadButton>button{
+  border-radius:12px; font-weight:800; letter-spacing:.2px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2)) !important;
+  border: 1px solid rgba(139,92,246,.35) !important;
+  box-shadow: var(--glow);
+}
+.stButton>button:hover, .stDownloadButton>button:hover{
+  filter: brightness(1.08);
+}
+.stTextInput>div>div>input, .stSelectbox>div>div>div>input{
+  border-radius: 12px;
+}
+.st-emotion-cache-ue6h4q{
+  outline: none !important;
+  box-shadow: 0 0 0 0 transparent !important;
+}
+:focus-visible{
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* ==== Small tweaks ==== */
+hr{ border-color: rgba(255,255,255,.08); }
+code, pre{ background: rgba(255,255,255,.06); border-radius: 10px; }

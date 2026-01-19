@@ -1,0 +1,33 @@
+banknote-verifier/
+├── app.py                          # Main Streamlit application
+├── streamlit_ui.py                 # Streamlit UI runner
+├── gemini_verifier.py              # Gemini AI verification engine
+├── resnet_placeholder.py           # ResNet segmentation placeholder
+├── security_features.py            # Security features database
+├── config.py                       # Configuration management
+├── run.py                          # Application runner
+├── requirements.txt                # Dependencies
+├── .env                           # Environment variables
+├── .env.example                   # Environment template
+├── utils/
+│   ├── __init__.py
+│   ├── image_processing.py
+│   └── serial_validation.py
+├── assets/                        # Static assets
+│   ├── images/
+│   │   ├── demo_banknote.jpg
+│   │   └── features/
+│   └── style.css
+├── feature_crops/                 # Reference feature images
+│   ├── ashok_pillar/
+│   ├── colorshift/
+│   ├── devnagri/
+│   ├── gandhi/
+│   ├── governor/
+│   ├── latentnum/
+│   ├── security_thread/
+│   ├── seethrough/
+│   ├── serial_num_left/
+│   ├── serial_num_right/
+│   └── strips/
+└── segmented_output/              # Temporary segmentation output
