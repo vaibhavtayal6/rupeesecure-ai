@@ -4,11 +4,25 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Try to import streamlit for secrets support
+try:
+    import streamlit as st
+    def get_api_key():
+        """Get API key from Streamlit secrets or environment"""
+        try:
+            return st.secrets.get("GEMINI_API_KEY", os.getenv('GEMINI_API_KEY'))
+        except:
+            return os.getenv('GEMINI_API_KEY')
+except ImportError:
+    def get_api_key():
+        """Fallback to environment variables"""
+        return os.getenv('GEMINI_API_KEY')
+
 class Config:
     """Configuration class for Banknote Verifier"""
     
     # Gemini API
-    GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+    GEMINI_API_KEY = get_api_key()
     
     # Application Settings
     DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
