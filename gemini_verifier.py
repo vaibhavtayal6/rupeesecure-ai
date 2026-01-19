@@ -1,7 +1,11 @@
 import os
+import sys
 import json
 import base64
 import re
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import google.generativeai as genai
 from typing import Dict, List, Any
 from utils.serial_validation import validate_serial_format, extract_serial_from_text, clean_serial_number
@@ -44,7 +48,7 @@ class GeminiBanknoteVerifier:
         Extract serial numbers specifically from the image with improved reliability
         """
         try:
-            # Encode image
+            
             image_data = self.encode_image(image_path)
             
             serial_prompt = f"""
